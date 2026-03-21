@@ -2,20 +2,20 @@ package modelo;
 
 public class Produto {
 
-    private static int conta = 1;
+    private static int contador = 1;
 
     private String nome;
     private double preco;
     private int id;
 
     public Produto() {
-        this.id = conta++;
+        this.id = contador++;
     }
 
     public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
-        this.id = conta++;
+        this.id = contador++;
     }
 
     public String getNome() {

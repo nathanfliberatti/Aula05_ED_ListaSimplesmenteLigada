@@ -19,4 +19,34 @@ public class Lista {
         }
     }
 
+    public void exibir() {
+        No e = inicio;
+        while(e != null) {
+            System.out.println(e.getProduto());
+            e = e.getProx();
+        }
+    }
+
+    public Produto pesquisar(int id) {
+        No aux = inicio;
+        while(aux != null) {
+            if (aux.getProduto().getId() == id) {
+                return aux.getProduto();
+            }
+            aux = aux.getProx();
+        }
+        return null;
+    }
+
+    public void atualizar(double novoPreco, int id) {
+        No aux = inicio;
+        while(aux != null) {
+            if (aux.getProduto().getId() == id) {
+                aux.getProduto().setPreco(novoPreco);
+                System.out.println("O preço de " + aux.getProduto().getNome() + " atualizou para: R$" + novoPreco);
+                return;
+            }
+            aux = aux.getProx();
+        }
+    }
 }
