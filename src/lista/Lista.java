@@ -49,4 +49,32 @@ public class Lista {
             aux = aux.getProx();
         }
     }
+
+    public boolean remover(int id) {
+        //Buscar um produto específico
+        No remove = inicio;
+        No anterior = inicio;
+        while(remove != null) {
+            if (id == remove.getProduto().getId()) {
+                break;
+            }
+            anterior = remove;
+            remove = remove.getProx();
+        }
+        if (remove != null) {
+            if (remove == inicio) { //remoção do primeiro nó
+                inicio = remove.getProx();
+                remove.setProx(null);//segurança
+            } else if(remove == atual) {
+                atual = anterior;
+                aux = anterior;
+                anterior.setProx(null);
+            } else {
+                anterior.setProx(remove.getProx());
+                remove.setProx(null);
+            }
+            return true;
+        }
+        return false;
+    }
 }
